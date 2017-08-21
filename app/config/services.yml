@@ -1,0 +1,8 @@
+##
+imports:
+    - { resource: command/author.yml }
+    
+services:
+    book.domain.authors:
+        class: Book\Infrastructure\Domain\Doctrine\ORM\Authors
+        arguments: ['@doctrine.orm.entity_manager']

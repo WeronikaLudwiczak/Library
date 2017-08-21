@@ -1,0 +1,8 @@
+
+services:
+    command.author.add_new:
+        class: Book\Application\Command\AddNewAuthorHandler
+        arguments: ['@book.domain.authors']
+        tags:
+            - { name: tactician.handler, command: Book\Application\Command\AddNewAuthor}
+        
