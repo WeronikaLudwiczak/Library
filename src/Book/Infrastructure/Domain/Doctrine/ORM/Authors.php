@@ -27,10 +27,11 @@ class Authors implements \Book\Domain\Authors {
      */
     public function add(Author $author) {
         
-//        $this->entityManager->persist($author);
-                $this->entityManager->transactional(function (EntityManagerInterface $entityManager) use ($author){
-            $entityManager->persist($author);
-        });
+        $this->entityManager->persist($author);
+        $this->entityManager->flush();
+//                $this->entityManager->transactional(function (EntityManagerInterface $entityManager) use ($author){
+//            $entityManager->persist($author);
+//        });
         
     }
 

@@ -10,7 +10,7 @@ class Author {
      *
      * @var integer
      */
-    protected $id;
+    private $id;
     
     /**
      *
@@ -39,21 +39,5 @@ class Author {
         $this->description =$description;
         
     }
-    
-    function getId() {
-        return $this->id;
-    }
-
-    function getFirstname() {
-        return $this->firstname;
-    }
-
-    function getLastname() {
-        return $this->lastname;
-    }
-
-    function getDescription() {
-        return $this->description;
-    }
-    
+   
 }

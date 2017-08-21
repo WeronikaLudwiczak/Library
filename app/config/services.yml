@@ -6,3 +6,7 @@ services:
     book.domain.authors:
         class: Book\Infrastructure\Domain\Doctrine\ORM\Authors
         arguments: ['@doctrine.orm.entity_manager']
+        
+    app.book_author.query:
+        class: Book\Infrastructure\Application\Doctrine\Dbal\DbalAuthorQuery
+        arguments: ['@doctrine.dbal.default_connection']

@@ -9,19 +9,30 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use League\Tactician\CommandBus;
 use Book\Application\Command\AddNewAuthor;
+use Book\Application\Query\Author\AuthorQuery;
 
 
 
 class AuthorController extends Controller 
 {
-      
     /**
-     * @Route("/add_author", name="add_author")
+     * @Route("/all_authors", name="all_authors")
      */
-    public function addNewAuthorAction()
+    public function showAllAuthorsAction()
     {
-        //to do
+        $query=$this->get('app.book_author.query');
+        $allAuthors=$query->getAll();
        
-        
+        return new Response('ok');
     }
+      
+//    /**
+//     * @Route("/add_author", name="add_author")
+//     */
+//    public function addNewAuthorAction()
+//    {
+//        //to do
+//       
+//        
+//    }
 }
