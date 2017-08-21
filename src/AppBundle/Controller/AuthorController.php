@@ -21,7 +21,7 @@ class AuthorController extends Controller
     public function addNewAuthorAction()
     {
         //to do
-        dump();
+       
         
     }
 }
