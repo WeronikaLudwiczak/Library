@@ -9,14 +9,14 @@ interface AuthorQuery
 {
     
     /**
-     * Find Author by Id
+     * Finds Author by Id
      * @param integer $id
      * @return AuthorView
      */
     public function getById(int $id): AuthorView;
     
     /**
-     * Find all Authors
+     * Finds all Authors
      * @return AuthorView[]
      */
     public function getAll(): array;
@@ -27,6 +27,13 @@ interface AuthorQuery
      * @return int
      */
     public function count(): int;
+    
+    /**
+     * Finds Authors by last name 
+     * @param string $lastName
+     * @return AuthorView[] 
+     */
+    public function getByLastName(string $lastName): array;
         
    
     

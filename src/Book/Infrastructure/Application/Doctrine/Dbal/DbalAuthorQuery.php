@@ -44,7 +44,44 @@ final class DbalAuthorQuery implements AuthorQuery
 
     public function getById(int $id): AuthorView 
     {
+        $queryBuilder=$this->connection->createQueryBuilder();
         
+        $queryBuilder
+                ->select('a.firstname', 'a.lastname', 'a.description')
+                ->from('author', 'a')
+                ->where('a.id = :id')
+                ->setParameter('id', $id);
+        
+        $result=$queryBuilder->execute();
+        if($result->rowCount() > 0){
+          $author= $result->fetch();
+            return new AuthorView($author['firstname'], $author['lastname'], $author['description']); 
+        }else{
+            throw new Exception('Author does not exist.');
+        }
+       
+        
+    }
+    
+    public function getByLastName(string $lastName): array
+    {
+              $queryBuilder=$this->connection->createQueryBuilder();
+        
+        $queryBuilder
+                ->select('a.firstname', 'a.lastname', 'a.description')
+                ->from('author', 'a')
+                ->where('a.lastname = :lastname')
+                ->setParameter('lastname', $lastName);
+        
+        $result=$queryBuilder->execute();
+        if($result->rowCount() > 0){
+          $authors= $result->fetchAlls();
+           array_map(function(array $authors){
+            return new AuthorView($authors['firstname'], $authors['lastname'], $authors['description']);
+        }, $authors); 
+        }else{
+            throw new Exception('Author does not exist.');
+        }  
     }
 
 }

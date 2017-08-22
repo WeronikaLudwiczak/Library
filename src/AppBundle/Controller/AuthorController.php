@@ -22,8 +22,10 @@ class AuthorController extends Controller
     {
         $query=$this->get('app.book_author.query');
         $allAuthors=$query->getAll();
-       
-        return new Response('ok');
+        
+  
+        return $this->render('author/author_list.html.twig',['authors'=> $allAuthors]);
+       ;
     }
       
 //    /**

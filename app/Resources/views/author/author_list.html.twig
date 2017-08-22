@@ -1,0 +1,8 @@
+{# empty Twig template #}
+{% extends "base.html.twig" %}
+{% block title %}{% endblock title %}
+    {% block container_content %}
+{% for author in authors%}
+    {{author.firstName}} {{author.lastName}} </br>
+{%endfor%}
+{%endblock%}
