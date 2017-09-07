@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use League\Tactician\CommandBus;
 use Book\Application\Command\AddNewAuthor;
-use Book\Application\Query\Author\AuthorQuery;
+
 
 
 
